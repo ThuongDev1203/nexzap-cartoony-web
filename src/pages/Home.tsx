@@ -1,9 +1,8 @@
-
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { Link } from "react-router-dom";
 import { Gamepad, Code, Star, Rocket, Trophy } from "lucide-react";
-import { 
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -22,21 +21,17 @@ import { Button } from "@/components/ui/button";
 const gamePlaceholders = [
   {
     id: 1,
-    title: "Cosmic Adventure",
-    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "An exciting space exploration game with vibrant cartoon graphics."
+    title: "Pig Adventure",
+    image: "",
+    description:
+      "An exciting space exploration game with vibrant cartoon graphics.",
   },
   {
     id: 2,
-    title: "Monster Legends",
-    image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Collect and battle with cute cartoon monsters in this fantasy world."
-  },
-  {
-    id: 3,
-    title: "Puzzle Kingdom",
-    image: "https://images.unsplash.com/photo-1614465000772-1b302f406c49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    description: "Solve colorful puzzles in this brain-teasing adventure."
+    title: "Undead Survivor",
+    image: "",
+    description:
+      "Collect and battle with cute cartoon monsters in this fantasy world.",
   },
 ];
 
@@ -51,15 +46,25 @@ const Home = () => {
         <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-              NexZap Studio
+              NexZap <span className="text-black">Studio</span>
             </h1>
-            <p className="text-3xl md:text-4xl font-bold mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+
+            <p
+              className="text-3xl md:text-4xl font-bold mb-8 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
               {t("hero.slogan")}
             </p>
-            <p className="text-xl md:text-2xl opacity-90 mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <p
+              className="text-xl md:text-2xl opacity-90 mb-10 animate-fade-in"
+              style={{ animationDelay: "0.4s" }}
+            >
               {t("hero.subtitle")}
             </p>
-            <Button className="bg-white text-orange-600 hover:bg-orange-100 px-8 py-6 text-lg animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            <Button
+              className="bg-white text-orange-600 border border-orange-600 hover:bg-orange-100 px-8 py-6 text-lg animate-fade-in"
+              style={{ animationDelay: "0.6s" }}
+            >
               {t("hero.cta")}
             </Button>
           </div>
@@ -70,10 +75,16 @@ const Home = () => {
               <div className="absolute top-0 left-0 p-4 bg-white rounded-2xl shadow-xl transform rotate-6 hover-scale animate-float">
                 <Gamepad size={40} className="text-orange-500" />
               </div>
-              <div className="absolute top-20 right-0 p-4 bg-white rounded-2xl shadow-xl transform -rotate-12 hover-scale animate-float" style={{ animationDelay: "1s" }}>
+              <div
+                className="absolute top-20 right-0 p-4 bg-white rounded-2xl shadow-xl transform -rotate-12 hover-scale animate-float"
+                style={{ animationDelay: "1s" }}
+              >
                 <Trophy size={40} className="text-orange-500" />
               </div>
-              <div className="absolute bottom-0 left-10 p-4 bg-white rounded-2xl shadow-xl transform rotate-12 hover-scale animate-float" style={{ animationDelay: "2s" }}>
+              <div
+                className="absolute bottom-0 left-10 p-4 bg-white rounded-2xl shadow-xl transform rotate-12 hover-scale animate-float"
+                style={{ animationDelay: "2s" }}
+              >
                 <Star size={40} className="text-orange-500" />
               </div>
             </div>
@@ -82,8 +93,16 @@ const Home = () => {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-            <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full h-auto"
+          >
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
           </svg>
         </div>
       </section>
@@ -95,9 +114,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
               {t("about.title")}
             </h2>
-            <p className="text-lg text-gray-600">
-              {t("about.description")}
-            </p>
+            <p className="text-lg text-gray-600">{t("about.description")}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -108,11 +125,9 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-3 text-gray-800">
                 {t("features.creativity.title")}
               </h3>
-              <p className="text-gray-600">
-                {t("features.creativity.desc")}
-              </p>
+              <p className="text-gray-600">{t("features.creativity.desc")}</p>
             </div>
-            
+
             <div className="bg-orange-50 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
               <div className="bg-orange-500 text-white p-3 rounded-xl inline-block mb-4">
                 <Code size={24} />
@@ -120,11 +135,9 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-3 text-gray-800">
                 {t("features.tech.title")}
               </h3>
-              <p className="text-gray-600">
-                {t("features.tech.desc")}
-              </p>
+              <p className="text-gray-600">{t("features.tech.desc")}</p>
             </div>
-            
+
             <div className="bg-orange-50 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
               <div className="bg-orange-500 text-white p-3 rounded-xl inline-block mb-4">
                 <Star size={24} />
@@ -132,9 +145,7 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-3 text-gray-800">
                 {t("features.fun.title")}
               </h3>
-              <p className="text-gray-600">
-                {t("features.fun.desc")}
-              </p>
+              <p className="text-gray-600">{t("features.fun.desc")}</p>
             </div>
           </div>
         </div>
@@ -147,7 +158,10 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
               {t("games.title")}
             </h2>
-            <Link to="/games" className="text-orange-500 hover:text-orange-600 font-medium transition-colors">
+            <Link
+              to="/games"
+              className="text-orange-500 hover:text-orange-600 font-medium transition-colors"
+            >
               {t("games.viewAll")} →
             </Link>
           </div>
@@ -155,11 +169,14 @@ const Home = () => {
           <Carousel className="w-full">
             <CarouselContent>
               {gamePlaceholders.map((game) => (
-                <CarouselItem key={game.id} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={game.id}
+                  className="md:basis-1/2 lg:basis-1/3"
+                >
                   <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                     <div className="aspect-video overflow-hidden">
-                      <img 
-                        src={game.image} 
+                      <img
+                        src={game.image}
                         alt={game.title}
                         className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                       />
@@ -171,7 +188,9 @@ const Home = () => {
                       <p>{game.description}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button variant="outline" className="w-full">View Game</Button>
+                      <Button variant="outline" className="w-full">
+                        View Game
+                      </Button>
                     </CardFooter>
                   </Card>
                 </CarouselItem>
