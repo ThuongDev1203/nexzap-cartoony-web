@@ -70,7 +70,7 @@ const Footer = () => {
               <p>Phone: +84 765 012 192</p>
               <div className="flex gap-4 mt-4">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/nexzapstudio"
                   className="text-white hover:text-orange-400 transition-colors"
                 >
                   <svg
