@@ -98,30 +98,24 @@ const GeneralApplicationForm = () => {
     formData.append("experience", data.experience);
     formData.append("message", data.message || "");
     formData.append("agreeToTerms", data.agreeToTerms ? "Yes" : "No");
-    formData.append("resume", resumeFile); // ⚠️ Chỉ hoạt động với bản PRO của Formspree
+    formData.append("resume", resumeFile);
 
     try {
-      const response = await fetch("https://formspree.io/f/myzwobqp", {
+      const response = await fetch("https://getform.io/f/bjjoeewb", {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
         body: formData,
       });
 
-      const result = await response.json();
-
       if (response.ok) {
-        toast.success("Đã gửi đơn đăng ký thành công!");
+        toast.success("Đã gửi đơn thành công!");
         form.reset();
         setResumeFile(null);
       } else {
-        console.error(result);
-        toast.error("Lỗi: " + (result?.message || "Không xác định"));
+        toast.error("Không thể gửi đơn. Vui lòng thử lại.");
       }
     } catch (error) {
-      console.error("Error sending form:", error);
-      toast.error("Không thể nộp đơn. Vui lòng thử lại sau.");
+      console.error("Error submitting form:", error);
+      toast.error("Có lỗi xảy ra khi gửi biểu mẫu.");
     }
   };
 
