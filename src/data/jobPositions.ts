@@ -7,7 +7,7 @@ export const jobPositions: JobPosition[] = [
     title: "Game Design",
     icon: Users,
     department: "Thiết Kế",
-    locationType: "Làm từ xa",
+    locationType: "Remote",
     description:
       "Tham gia đội ngũ thiết kế để hỗ trợ xây dựng ý tưởng gameplay, cấp độ và hệ thống trò chơi. Đây là cơ hội tuyệt vời để học hỏi quy trình phát triển game chuyên nghiệp.",
     requirements: [
@@ -37,7 +37,7 @@ export const jobPositions: JobPosition[] = [
     title: "Artist",
     icon: Palette,
     department: "Mỹ Thuật",
-    locationType: "Làm từ xa",
+    locationType: "Remote",
     description:
       "Hỗ trợ đội ngũ mỹ thuật trong việc tạo ra các tài sản hình ảnh cho game như nhân vật, đạo cụ và UI. Phù hợp với sinh viên hoặc người mới bắt đầu muốn tích lũy kinh nghiệm thực tế.",
     requirements: [

@@ -7,22 +7,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 const gamePlaceholders = [
   {
     id: 1,
     title: "Pig Adventure",
-    image: "",
+    image: "../lovable-uploads/pigad.png", // Thay bằng ảnh thật của bạn
     description:
       "An exciting space exploration game with vibrant cartoon graphics.",
+    url: "https://thuonggamedev.itch.io/pigadventure",
   },
   {
     id: 2,
     title: "Undead Survivor",
-    image: "",
+    image: "../lovable-uploads/UndeadSurvivor.png", // Thay bằng ảnh thật của bạn
     description:
       "Collect and battle with cute cartoon monsters in this fantasy world.",
+    url: "https://thuonggamedev.itch.io/undead-survivor",
   },
 ];
 
@@ -55,9 +56,14 @@ const Games = () => {
                 <p>{game.description}</p>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" className="w-full">
+                <a
+                  href={game.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full block text-center py-2 border border-gray-300 rounded-md hover:bg-orange-500 hover:text-white transition-colors duration-300"
+                >
                   View Game
-                </Button>
+                </a>
               </CardFooter>
             </Card>
           ))}

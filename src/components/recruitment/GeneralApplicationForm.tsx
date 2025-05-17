@@ -25,23 +25,21 @@ const ACCEPTED_FILE_TYPES = [
 ];
 
 const formSchema = z.object({
-  fullName: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phone: z.string().min(10, {
-    message: "Phone number must be at least 10 digits.",
-  }),
-  position: z.string().min(2, {
-    message: "Position must be at least 2 characters.",
-  }),
-  experience: z.string().min(5, {
-    message: "Experience details must be at least 5 characters.",
-  }),
+  fullName: z
+    .string()
+    .min(2, { message: "Full name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  phone: z
+    .string()
+    .min(10, { message: "Phone number must be at least 10 digits." }),
+  position: z
+    .string()
+    .min(2, { message: "Position must be at least 2 characters." }),
+  experience: z
+    .string()
+    .min(5, { message: "Experience details must be at least 5 characters." }),
   message: z.string().optional(),
-  agreeToTerms: z.boolean().refine((value) => value === true, {
+  agreeToTerms: z.boolean().refine((val) => val === true, {
     message: "You must agree to the terms and conditions.",
   }),
 });
@@ -92,19 +90,37 @@ const GeneralApplicationForm = () => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("fullName", data.fullName);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("position", data.position);
+    formData.append("experience", data.experience);
+    formData.append("message", data.message || "");
+    formData.append("agreeToTerms", data.agreeToTerms ? "Yes" : "No");
+    formData.append("resume", resumeFile); // ⚠️ Chỉ hoạt động với bản PRO của Formspree
+
     try {
-      console.log("Form submitted:", { ...data, resumeFile });
+      const response = await fetch("https://formspree.io/f/myzwobqp", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
 
-      // Simulate sending email
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const result = await response.json();
 
-      toast.success(
-        "Đã gửi đơn đăng ký thành công! Chúng tôi sẽ sớm xem xét đơn đăng ký của bạn."
-      );
-      form.reset();
-      setResumeFile(null);
+      if (response.ok) {
+        toast.success("Đã gửi đơn đăng ký thành công!");
+        form.reset();
+        setResumeFile(null);
+      } else {
+        console.error(result);
+        toast.error("Lỗi: " + (result?.message || "Không xác định"));
+      }
     } catch (error) {
-      console.error("Error sending application:", error);
+      console.error("Error sending form:", error);
       toast.error("Không thể nộp đơn. Vui lòng thử lại sau.");
     }
   };

@@ -83,7 +83,7 @@ const CompanyBenefits = () => {
       <p className="text-gray-600">
         {t("recruitment.cantFind")}
         <span className="text-orange-500 font-medium ml-1">
-          thuongdev1203@gmail.com
+          nexzap.studio@gmail.com
         </span>
       </p>
     </div>

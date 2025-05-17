@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
@@ -75,7 +74,7 @@ const Footer = () => {
               {t("footer.contact")}
             </h3>
             <div className="space-y-2 text-gray-400">
-              <p>Email: contact@nexzap.studio</p>
+              <p>Email: nexzap.studio@gmail.com</p>
               <p>Phone: +84 765 012 192</p>
               <div className="flex gap-4 mt-4">
                 <a

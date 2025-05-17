@@ -1,14 +1,13 @@
-
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -37,7 +36,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const { t } = useLanguage();
-  
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,17 +46,29 @@ const Contact = () => {
       message: "",
     },
   });
-  
+
   const onSubmit = async (data: FormValues) => {
     try {
-      // In a real implementation, you would send this data to your backend or email service
-      console.log("Form submitted:", data);
-      
-      // Simulate sending email
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      form.reset();
+      const response = await fetch("https://formspree.io/f/xovdrpop", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        form.reset();
+      } else {
+        toast.error("Failed to send message. Please try again later.");
+      }
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error("Failed to send message. Please try again later.");
@@ -95,7 +106,10 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your.email@example.com" {...field} />
+                        <Input
+                          placeholder="your.email@example.com"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -124,10 +138,10 @@ const Contact = () => {
                   <FormItem>
                     <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder="Your message here..." 
-                        rows={6} 
-                        {...field} 
+                      <Textarea
+                        placeholder="Your message here..."
+                        rows={6}
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -135,8 +149,8 @@ const Contact = () => {
                 )}
               />
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full md:w-auto"
                 disabled={form.formState.isSubmitting}
               >
@@ -192,7 +206,7 @@ const Contact = () => {
               </svg>
             </div>
             <h3 className="font-semibold mb-2">Email</h3>
-            <p className="text-gray-600">contact@nexzap.studio</p>
+            <p className="text-gray-600">nexzap.studio@gmail.com</p>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-md text-center">
