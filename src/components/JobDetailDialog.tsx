@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { JobPosition } from "@/types/job";
 import { Briefcase, Calendar, Mail } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface JobDetailDialogProps {
   job: JobPosition | null;
@@ -19,6 +20,8 @@ interface JobDetailDialogProps {
 }
 
 const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
+  const { t } = useLanguage();
+  
   if (!job) return null;
   
   return (
@@ -44,7 +47,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-2">Requirements</h3>
+            <h3 className="text-lg font-semibold mb-2">{t("job.requirements")}</h3>
             <ul className="list-disc pl-5 space-y-1">
               {job.requirements.map((requirement, index) => (
                 <li key={index} className="text-gray-700">{requirement}</li>
@@ -53,7 +56,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-2">Responsibilities</h3>
+            <h3 className="text-lg font-semibold mb-2">{t("job.responsibilities")}</h3>
             <ul className="list-disc pl-5 space-y-1">
               {job.responsibilities.map((responsibility, index) => (
                 <li key={index} className="text-gray-700">{responsibility}</li>
@@ -62,7 +65,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-2">Benefits</h3>
+            <h3 className="text-lg font-semibold mb-2">{t("job.benefits")}</h3>
             <ul className="list-disc pl-5 space-y-1">
               {job.benefits.map((benefit, index) => (
                 <li key={index} className="text-gray-700">{benefit}</li>
@@ -75,7 +78,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
           <div className="flex-1 text-gray-600 text-sm">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-1" />
-              <span>Apply by: September 30, 2024</span>
+              <span>{t("job.applyBy")}: September 30, 2024</span>
             </div>
           </div>
           <div>
@@ -87,7 +90,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
               }}
             >
               <Mail className="mr-2 h-4 w-4" />
-              Apply for this position
+              {t("job.apply")}
             </Button>
           </div>
         </DialogFooter>

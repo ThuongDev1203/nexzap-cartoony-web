@@ -59,6 +59,13 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Chính sách bảo mật",
     "footer.terms": "Điều khoản sử dụng",
     "footer.contact": "Liên hệ",
+
+    // Job Details
+    "job.requirements": "Yêu Cầu",
+    "job.responsibilities": "Trách Nhiệm",
+    "job.benefits": "Quyền Lợi",
+    "job.applyBy": "Ứng tuyển trước ngày",
+    "job.apply": "Ứng tuyển vị trí này"
   },
   en: {
     // Navigation
@@ -99,6 +106,13 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
     "footer.contact": "Contact Us",
+
+    // Job Details
+    "job.requirements": "Requirements",
+    "job.responsibilities": "Responsibilities",
+    "job.benefits": "Benefits",
+    "job.applyBy": "Apply by",
+    "job.apply": "Apply for this position"
   },
 };
 
