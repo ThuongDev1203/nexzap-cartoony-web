@@ -1,111 +1,65 @@
-
-import { Code, Palette, Users } from "lucide-react";
+import { Users, Palette } from "lucide-react";
 import { JobPosition } from "@/types/job";
 
 export const jobPositions: JobPosition[] = [
   {
-    id: "game-dev",
-    title: "Game Developer",
-    icon: Code,
-    department: "Engineering",
-    locationType: "Remote / On-site",
-    description: "Join our team to create exciting game experiences using Unity or Unreal Engine. You'll be responsible for implementing gameplay mechanics, optimizing performance, and collaborating with artists and designers to bring creative visions to life.",
-    requirements: [
-      "At least 2 years of experience with Unity or Unreal Engine",
-      "Strong C# or C++ programming skills",
-      "Experience with 2D/3D game development",
-      "Portfolio demonstrating game projects",
-      "Understanding of game design principles",
-      "Knowledge of version control systems (Git)",
-      "Ability to work collaboratively in a team environment"
-    ],
-    responsibilities: [
-      "Develop and implement gameplay features using Unity/Unreal Engine",
-      "Write clean, maintainable, and efficient code",
-      "Optimize game performance on various platforms",
-      "Fix bugs and technical issues",
-      "Collaborate with artists, designers, and other team members",
-      "Participate in code reviews and technical discussions",
-      "Stay updated with the latest gaming technologies and trends"
-    ],
-    benefits: [
-      "Competitive salary and benefits package",
-      "Flexible working hours",
-      "Professional development opportunities",
-      "Modern, creative workspace",
-      "Team building events and game jams",
-      "Healthcare coverage",
-      "Paid time off and holidays"
-    ]
-  },
-  {
-    id: "3d-artist",
-    title: "3D Artist",
-    icon: Palette,
-    department: "Art",
-    locationType: "Remote / On-site",
-    description: "Create captivating 3D assets, characters and environments for our games. You'll work closely with the art director and game designers to develop visually stunning and optimized game assets that bring our worlds to life.",
-    requirements: [
-      "Experience with 3D modeling software (Blender, Maya, or 3ds Max)",
-      "Strong understanding of texturing and lighting",
-      "Ability to create optimized game-ready assets",
-      "An eye for cartoon-style design",
-      "Knowledge of PBR workflows",
-      "Understanding of topology and UV unwrapping",
-      "Portfolio demonstrating 3D modeling skills"
-    ],
-    responsibilities: [
-      "Create 3D models, textures, and animations for games",
-      "Design characters, environments, and props",
-      "Optimize 3D assets for various platforms",
-      "Collaborate with the art team and game designers",
-      "Follow art direction and style guides",
-      "Iterate on designs based on feedback",
-      "Meet project deadlines and quality standards"
-    ],
-    benefits: [
-      "Competitive salary and benefits package",
-      "Creative freedom and artistic growth",
-      "Access to industry-standard tools and software",
-      "Portfolio development opportunities",
-      "Collaborative and supportive work environment",
-      "Healthcare coverage",
-      "Flexible working arrangements"
-    ]
-  },
-  {
-    id: "game-design-lead",
-    title: "Game Design Lead",
+    id: "game-design-intern",
+    title: "Game Design",
     icon: Users,
-    department: "Design",
-    locationType: "On-site",
-    description: "Lead the design team in creating engaging gameplay mechanics and experiences. You'll define the vision for our games and oversee the implementation of game systems, levels, and player experiences that keep our audience engaged.",
+    department: "Thiết Kế",
+    locationType: "Làm từ xa",
+    description:
+      "Tham gia đội ngũ thiết kế để hỗ trợ xây dựng ý tưởng gameplay, cấp độ và hệ thống trò chơi. Đây là cơ hội tuyệt vời để học hỏi quy trình phát triển game chuyên nghiệp.",
     requirements: [
-      "5+ years of game design experience",
-      "Experience leading design teams",
-      "Strong understanding of player psychology and engagement",
-      "Excellent communication and documentation skills",
-      "Portfolio of shipped games",
-      "Experience with game design tools and engines",
-      "Ability to analyze data and make design decisions"
+      "Đam mê game và thiết kế trò chơi",
+      "Kỹ năng giao tiếp và làm việc nhóm tốt",
+      "Hiểu cơ bản về cơ chế gameplay và tâm lý người chơi",
+      "Biết sử dụng công cụ thiết kế cơ bản (Google Docs, Figma, v.v.)",
+      "Khả năng học hỏi nhanh và tiếp nhận phản hồi",
     ],
     responsibilities: [
-      "Lead and mentor the game design team",
-      "Develop game design documents and specifications",
-      "Create compelling game mechanics and systems",
-      "Balance gameplay elements for optimal player experience",
-      "Collaborate with artists, developers, and producers",
-      "Playtest and iterate on game features",
-      "Present design concepts to stakeholders"
+      "Hỗ trợ lên ý tưởng gameplay, level và tính năng",
+      "Viết tài liệu thiết kế cơ bản",
+      "Thử nghiệm và đưa phản hồi về game",
+      "Phối hợp với các bộ phận khác như lập trình và họa sĩ",
+      "Tham gia các cuộc họp và cập nhật tiến độ",
     ],
     benefits: [
-      "Leadership role with creative control",
-      "Competitive salary and comprehensive benefits",
-      "Professional development budget",
-      "Influence on company's game portfolio",
-      "Modern office with game testing facilities",
-      "Team retreats and industry events",
-      "Profit sharing opportunities"
-    ]
-  }
+      "Cơ hội trở thành nhân viên chính thức",
+      "Làm việc trong môi trường sáng tạo và năng động",
+      "Được hướng dẫn trực tiếp bởi các chuyên gia trong ngành",
+      "Tham gia dự án thực tế",
+      "Linh hoạt thời gian làm việc",
+    ],
+  },
+  {
+    id: "artist-intern",
+    title: "Artist",
+    icon: Palette,
+    department: "Mỹ Thuật",
+    locationType: "Làm từ xa",
+    description:
+      "Hỗ trợ đội ngũ mỹ thuật trong việc tạo ra các tài sản hình ảnh cho game như nhân vật, đạo cụ và UI. Phù hợp với sinh viên hoặc người mới bắt đầu muốn tích lũy kinh nghiệm thực tế.",
+    requirements: [
+      "Có kiến thức cơ bản về mỹ thuật và phần mềm vẽ kỹ thuật số (Photoshop, Clip Studio, v.v.)",
+      "Tư duy thẩm mỹ và khả năng quan sát tốt",
+      "Ham học hỏi, chăm chỉ và tiếp thu nhanh",
+      "Ưu tiên có portfolio hoặc các sản phẩm cá nhân",
+      "Biết lắng nghe và làm việc nhóm",
+    ],
+    responsibilities: [
+      "Vẽ concept nhân vật, vật phẩm, môi trường theo yêu cầu",
+      "Hỗ trợ dựng hình hoặc làm UI đơn giản",
+      "Tham gia brainstorm ý tưởng cùng đội ngũ",
+      "Nhận phản hồi và chỉnh sửa sản phẩm",
+      "Tuân thủ deadline và định hướng phong cách của dự án",
+    ],
+    benefits: [
+      "Được đào tạo và kèm cặp trong quá trình làm việc",
+      "Cơ hội trở thành họa sĩ chính thức trong studio",
+      "Tham gia dự án game thực tế",
+      "Thời gian làm việc linh hoạt, phù hợp sinh viên",
+      "Môi trường sáng tạo, thân thiện",
+    ],
+  },
 ];
