@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 // Define language types
@@ -25,6 +26,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.games": "Trò Chơi",
     "nav.about": "Về Chúng Tôi",
     "nav.contact": "Liên Hệ",
+    "nav.recruitment": "Tuyển Dụng",
 
     // Hero Section
     "hero.slogan": "Kết nối. Sáng tạo. Bùng nổ!",
@@ -64,6 +66,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.games": "Games",
     "nav.about": "About",
     "nav.contact": "Contact",
+    "nav.recruitment": "Careers",
 
     // Hero Section
     "hero.slogan": "Connect. Create. Explode!",
