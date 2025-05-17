@@ -3,6 +3,7 @@ import React from "react";
 import { JobPosition } from "@/types/job";
 import { Briefcase } from "lucide-react";
 import JobCard from "./JobCard";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface JobPositionsListProps {
   jobs: JobPosition[];
@@ -10,11 +11,13 @@ interface JobPositionsListProps {
 }
 
 const JobPositionsList = ({ jobs, onJobSelect }: JobPositionsListProps) => {
+  const { t } = useLanguage();
+  
   return (
     <div className="max-w-5xl mx-auto mb-16">
       <h2 className="text-2xl font-bold mb-6 flex items-center">
         <Briefcase className="mr-2 text-orange-500" />
-        Open Positions
+        {t("recruitment.openPositions")}
       </h2>
       <div className="grid grid-cols-1 gap-6">
         {jobs.map((job) => (

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { Mail } from "lucide-react";
@@ -7,6 +8,7 @@ import GeneralApplicationForm from "@/components/recruitment/GeneralApplicationF
 import CompanyBenefits from "@/components/recruitment/CompanyBenefits";
 import { JobPosition } from "@/types/job";
 import { jobPositions } from "@/data/jobPositions";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Recruitment = () => {
   const { t } = useLanguage();
@@ -29,11 +31,15 @@ const Recruitment = () => {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <h1 className="text-4xl font-bold">{t("recruitment.title")}</h1>
+            <div className="ml-4">
+              <LanguageSwitcher />
+            </div>
+          </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Are you passionate about game development? We're looking for talented individuals 
-            to join our creative team and help us build amazing gaming experiences.
+            {t("recruitment.subtitle")}
           </p>
         </div>
 
@@ -49,7 +55,7 @@ const Recruitment = () => {
         <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 mb-16">
           <h2 className="text-2xl font-bold mb-6 flex items-center">
             <Mail className="mr-2 text-orange-500" />
-            Apply Now
+            {t("recruitment.applyNow")}
           </h2>
           
           <GeneralApplicationForm />

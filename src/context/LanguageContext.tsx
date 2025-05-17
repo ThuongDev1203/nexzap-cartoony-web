@@ -65,7 +65,22 @@ const translations: Record<Language, Record<string, string>> = {
     "job.responsibilities": "Trách Nhiệm",
     "job.benefits": "Quyền Lợi",
     "job.applyBy": "Ứng tuyển trước ngày",
-    "job.apply": "Ứng tuyển vị trí này"
+    "job.apply": "Ứng tuyển vị trí này",
+    
+    // Recruitment Page
+    "recruitment.title": "Tham Gia Đội Ngũ Của Chúng Tôi",
+    "recruitment.subtitle": "Bạn có đam mê phát triển trò chơi? Chúng tôi đang tìm kiếm những cá nhân tài năng để tham gia đội ngũ sáng tạo và giúp chúng tôi xây dựng trải nghiệm chơi game tuyệt vời.",
+    "recruitment.openPositions": "Vị Trí Đang Tuyển",
+    "recruitment.viewDetails": "Xem Chi Tiết",
+    "recruitment.applyNow": "Ứng Tuyển Ngay",
+    "recruitment.whyJoin": "Tại Sao Nên Tham Gia NexZap Studio?",
+    "recruitment.creativeEnv.title": "Môi Trường Sáng Tạo",
+    "recruitment.creativeEnv.desc": "Làm việc trong một không gian sôi động, sáng tạo nơi ý tưởng của bạn được coi trọng.",
+    "recruitment.growSkills.title": "Phát Triển Kỹ Năng",
+    "recruitment.growSkills.desc": "Cơ hội học tập và phát triển liên tục cho tất cả thành viên trong đội.",
+    "recruitment.amazingTeam.title": "Đội Ngũ Tuyệt Vời",
+    "recruitment.amazingTeam.desc": "Tham gia đội ngũ tài năng, đa dạng đầy đam mê về việc tạo ra những trò chơi tuyệt vời.",
+    "recruitment.cantFind": "Không tìm thấy vị trí phù hợp với kỹ năng của bạn? Chúng tôi luôn tìm kiếm những cá nhân tài năng. Gửi CV của bạn đến "
   },
   en: {
     // Navigation
@@ -112,7 +127,22 @@ const translations: Record<Language, Record<string, string>> = {
     "job.responsibilities": "Responsibilities",
     "job.benefits": "Benefits",
     "job.applyBy": "Apply by",
-    "job.apply": "Apply for this position"
+    "job.apply": "Apply for this position",
+    
+    // Recruitment Page
+    "recruitment.title": "Join Our Team",
+    "recruitment.subtitle": "Are you passionate about game development? We're looking for talented individuals to join our creative team and help us build amazing gaming experiences.",
+    "recruitment.openPositions": "Open Positions",
+    "recruitment.viewDetails": "View Details",
+    "recruitment.applyNow": "Apply Now",
+    "recruitment.whyJoin": "Why Join NexZap Studio?",
+    "recruitment.creativeEnv.title": "Creative Environment",
+    "recruitment.creativeEnv.desc": "Work in a vibrant, creative atmosphere where your ideas matter.",
+    "recruitment.growSkills.title": "Grow Your Skills",
+    "recruitment.growSkills.desc": "Continuous learning and development opportunities for all team members.",
+    "recruitment.amazingTeam.title": "Amazing Team",
+    "recruitment.amazingTeam.desc": "Join a talented, diverse team passionate about creating great games.",
+    "recruitment.cantFind": "Can't find a position that matches your skills? We're always looking for talented individuals. Send us your resume at"
   },
 };
 
