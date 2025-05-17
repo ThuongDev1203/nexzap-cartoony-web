@@ -93,7 +93,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
           <div className="flex-1 text-gray-600 text-sm">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-1" />
-              <span>{t("job.applyBy") || "Hạn ứng tuyển"}: 30/09/2024</span>
+              <span>{t("job.applyBy") || "Hạn ứng tuyển"}: 30/06/2025</span>
             </div>
           </div>
           <div>
@@ -101,7 +101,7 @@ const JobDetailDialog = ({ job, isOpen, onClose }: JobDetailDialogProps) => {
               className="flex items-center"
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = `mailto:careers@nexzap.studio?subject=Ứng tuyển vị trí ${job.title}`;
+                window.location.href = `mailto:thuongdev1203@gmail.com?subject=Ứng tuyển vị trí ${job.title}`;
               }}
             >
               <Mail className="mr-2 h-4 w-4" />
