@@ -160,7 +160,7 @@ const GeneralApplicationForm = () => {
             name="position"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Position Applying For</FormLabel>
+                <FormLabel>Vị trí</FormLabel>
                 <FormControl>
                   <Input placeholder="Vị trí ứng tuyển" {...field} />
                 </FormControl>
