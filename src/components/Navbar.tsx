@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Briefcase } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -45,6 +45,10 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="font-medium text-gray-700 hover:text-orange-500 transition-colors">
                 {t("nav.contact")}
+              </Link>
+              <Link to="/recruitment" className="font-medium text-gray-700 hover:text-orange-500 transition-colors flex items-center">
+                <Briefcase className="mr-1 w-4 h-4" />
+                {t("nav.recruitment") || "Careers"}
               </Link>
               <LanguageSwitcher />
             </div>
@@ -95,6 +99,14 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("nav.contact")}
+              </Link>
+              <Link 
+                to="/recruitment" 
+                className="font-medium text-gray-700 hover:text-orange-500 transition-colors py-2 flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Briefcase className="mr-1 w-4 h-4" />
+                {t("nav.recruitment") || "Careers"}
               </Link>
             </div>
           </div>

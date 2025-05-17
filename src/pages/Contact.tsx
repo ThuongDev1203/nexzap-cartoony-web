@@ -1,9 +1,68 @@
+
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { Button } from "@/components/ui/button";
+import { 
+  Form, 
+  FormControl, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
+import { Mail } from "lucide-react";
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  subject: z.string().min(5, {
+    message: "Subject must be at least 5 characters.",
+  }),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const { t } = useLanguage();
+  
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+  
+  const onSubmit = async (data: FormValues) => {
+    try {
+      // In a real implementation, you would send this data to your backend or email service
+      console.log("Form submitted:", data);
+      
+      // Simulate sending email
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      form.reset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again later.");
+    }
+  };
 
   return (
     <div className="min-h-screen py-16">
@@ -13,68 +72,85 @@ const Contact = () => {
         </h1>
 
         <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-          <form>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your name" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="your.email@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
-            </div>
 
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Subject of your message" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
 
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Your message here..." 
+                        rows={6} 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button 
+                type="submit" 
+                className="w-full md:w-auto"
+                disabled={form.formState.isSubmitting}
               >
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={6}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              ></textarea>
-            </div>
-
-            <Button type="submit" className="w-full md:w-auto">
-              Send Message
-            </Button>
-          </form>
+                {form.formState.isSubmitting ? (
+                  <>Sending...</>
+                ) : (
+                  <>
+                    <Mail className="mr-2" />
+                    Send Message
+                  </>
+                )}
+              </Button>
+            </form>
+          </Form>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">

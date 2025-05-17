@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
@@ -56,6 +57,14 @@ const Footer = () => {
                   className="text-gray-400 hover:text-orange-400 transition-colors"
                 >
                   {t("nav.contact")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/recruitment"
+                  className="text-gray-400 hover:text-orange-400 transition-colors"
+                >
+                  {t("nav.recruitment") || "Careers"}
                 </Link>
               </li>
             </ul>
