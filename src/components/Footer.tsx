@@ -66,6 +66,24 @@ const Footer = () => {
                   {t("nav.recruitment") || "Careers"}
                 </Link>
               </li>
+
+              {/* ➕ Thêm 2 link này vào */}
+              <li>
+                <Link
+                  to="/privacy"
+                  className="text-gray-400 hover:text-orange-400 transition-colors"
+                >
+                  {t("footer.privacy") || "Privacy Policy"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="text-gray-400 hover:text-orange-400 transition-colors"
+                >
+                  {t("footer.terms") || "Terms of Service"}
+                </Link>
+              </li>
             </ul>
           </div>
 
